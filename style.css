@@ -233,3 +233,13 @@ body {
         gap: 1rem;
     }
 }
+@keyframes celebrate {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.1) rotate(5deg); }
+    75% { transform: scale(1.1) rotate(-5deg); }
+}
+
+.timer-display.celebrate {
+    animation: celebrate 0.5s ease 3;
+    color: var(--primary-color);
+}

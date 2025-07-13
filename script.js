@@ -153,6 +153,10 @@ function timerComplete() {
     
     // Play notification sound
     playNotification();
+    timerDisplay.classList.add('celebrate');
+setTimeout(() => {
+    timerDisplay.classList.remove('celebrate');
+}, 1500);
     
     if (!timer.isBreak) {
         // Focus session completed
@@ -213,6 +217,19 @@ function playNotification() {
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.5);
 }
+// Add keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.code === 'Space') {
+        e.preventDefault();
+        if (timer.isRunning) {
+            pauseTimer();
+        } else {
+            startTimer();
+        }
+    } else if (e.code === 'KeyR') {
+        resetTimer();
+    }
+});
 
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
