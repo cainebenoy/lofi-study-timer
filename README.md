@@ -3,7 +3,7 @@
 A beautiful, minimalist Pomodoro timer with ambient sounds and smooth animations.
 
 ## 🚀 Live Demo
-[View Live Demo](https://yourusername.github.io/lofi-study-timer/)
+[View Live Demo](https://cainebenoy.github.io/lofi-study-timer/)
 
 ## ✨ Features
 - ⏱️ **Customizable Timer** - Set your own focus and break intervals (1-60 minutes)
@@ -35,7 +35,7 @@ A beautiful, minimalist Pomodoro timer with ambient sounds and smooth animations
 
 1. Clone the repository
 ```bash
-git clone https://github.com/yourusername/lofi-study-timer.git
+git clone https://github.com/cainebenoy/lofi-study-timer.git
 ```
 
 2. Navigate to the project directory
