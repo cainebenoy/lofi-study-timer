@@ -20,7 +20,7 @@ A beautiful, minimalist Pomodoro timer with ambient sounds and smooth animations
 
 ## 📸 Screenshots
 
-![Lo-fi Study Timer Screenshot](https://via.placeholder.com/800x600/FFB4B4/9B72AA?text=Lo-fi+Study+Timer)
+![Lo-fi Study Timer Screenshot](screenshot.png)
 
 ## 🛠️ Tech Stack
 - **HTML5** - Semantic markup
