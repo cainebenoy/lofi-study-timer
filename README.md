@@ -8,6 +8,7 @@ A beautiful, minimalist Pomodoro timer with ambient sounds and smooth animations
 ## ✨ Features
 - ⏱️ **Customizable Timer** - Set your own focus and break intervals (1-60 minutes)
 - 🎵 **Ambient Sounds** - Optional lo-fi background music for better concentration
+- 🌓 **Dark/Light Mode** - Toggle between light and dark themes with beautiful gradients
 - 📊 **Session Tracking** - Tracks completed focus sessions with localStorage persistence
 - ⌨️ **Keyboard Shortcuts** 
   - `Space` - Start/Pause timer
@@ -107,11 +108,8 @@ Contributions are welcome! Feel free to:
 - [ ] Multiple timer presets
 - [ ] Statistics dashboard
 - [ ] Different ambient sound options
-- [ ] Dark/light theme toggle
+- [x] Dark/light theme toggle
 - [ ] Export session data to CSV
-- [ ] Integration with productivity apps
-- [ ] Custom notification sounds
-- [ ] Long break intervals
 
 ## 🐛 Known Issues
 
