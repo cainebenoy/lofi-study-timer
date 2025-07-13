@@ -1,0 +1,16 @@
+{
+    "name": "Lo-fi Study Timer",
+    "short_name": "Study Timer",
+    "description": "A beautiful Pomodoro timer with ambient sounds",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#FFB4B4",
+    "theme_color": "#9B72AA",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
