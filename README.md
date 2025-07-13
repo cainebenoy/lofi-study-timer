@@ -138,4 +138,3 @@ Project Link: [https://github.com/yourusername/lofi-study-timer](https://github.
 
 <p align="center">Made with 💜 and lots of ☕</p>
 <p align="center">⭐ Star this repo if you found it helpful!</p>
-```
