@@ -5,12 +5,104 @@
 }
 
 :root {
+    /* Light mode colors (default) */
     --primary-color: #9B72AA;
     --secondary-color: #FFB4B4;
     --accent-color: #FFDCDC;
     --text-primary: #2D2D2D;
     --text-secondary: #666;
     --bg-overlay: rgba(255, 255, 255, 0.9);
+    
+    /* Gradient colors for light mode */
+    --gradient-1: #FFB4B4;
+    --gradient-2: #9B72AA;
+    --gradient-3: #B4A7CE;
+    --gradient-4: #FFDCDC;
+    
+    /* Input and button colors */
+    --input-border: #E5E5E5;
+    --input-bg: #FFFFFF;
+    --toggle-bg: #F0F0F0;
+}
+/* Dark mode colors */
+[data-theme="dark"] {
+    --primary-color: #BB92CC;
+    --secondary-color: #FF9999;
+    --accent-color: #66545E;
+    --text-primary: #E5E5E5;
+    --text-secondary: #B0B0B0;
+    --bg-overlay: rgba(30, 30, 30, 0.9);
+    
+    /* Gradient colors for dark mode */
+    --gradient-1: #2D1B69;
+    --gradient-2: #5D3F6A;
+    --gradient-3: #763857;
+    --gradient-4: #3C1F3D;
+    
+    /* Input and button colors */
+    --input-border: #444;
+    --input-bg: #2A2A2A;
+    --toggle-bg: #444;
+}
+/* Theme Toggle Styles */
+.theme-toggle {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 1000;
+}
+
+.theme-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.theme-toggle label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 60px;
+    height: 30px;
+    background: var(--toggle-bg);
+    border-radius: 50px;
+    padding: 5px;
+    cursor: pointer;
+    position: relative;
+    transition: background 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.theme-toggle label::after {
+    content: '';
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    background: white;
+    border-radius: 50%;
+    left: 4px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.theme-toggle input[type="checkbox"]:checked + label::after {
+    transform: translateX(30px);
+}
+
+.theme-toggle input[type="checkbox"]:checked + label {
+    background: var(--primary-color);
+}
+
+.theme-toggle .sun,
+.theme-toggle .moon {
+    font-size: 14px;
+    z-index: 2;
+}
+
+.theme-toggle input[type="checkbox"]:checked + label .sun {
+    opacity: 0.5;
+}
+
+.theme-toggle input[type="checkbox"]:not(:checked) + label .moon {
+    opacity: 0.5;
 }
 
 body {
@@ -21,6 +113,7 @@ body {
     justify-content: center;
     overflow: hidden;
     color: var(--text-primary);
+    transition: color 0.3s ease;
 }
 
 /* Animated Gradient Background */
@@ -30,10 +123,11 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(45deg, #FFB4B4, #9B72AA, #B4A7CE, #FFDCDC);
+    background: linear-gradient(45deg, var(--gradient-1), var(--gradient-2), var(--gradient-3), var(--gradient-4));
     background-size: 400% 400%;
     animation: gradientShift 15s ease infinite;
     z-index: -1;
+    transition: background 0.5s ease;
 }
 
 @keyframes gradientShift {
@@ -52,6 +146,7 @@ body {
     text-align: center;
     min-width: 400px;
     animation: fadeIn 0.8s ease;
+    transition: all 0.3s ease;
 }
 
 @keyframes fadeIn {
@@ -167,12 +262,14 @@ body {
 .setting-group input {
     width: 60px;
     padding: 0.5rem;
-    border: 2px solid #E5E5E5;
+    border: 2px solid var(--input-border);
+    background: var(--input-bg);
+    color: var(--text-primary);
     border-radius: 10px;
     text-align: center;
     font-family: inherit;
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .setting-group input:focus {
@@ -204,7 +301,7 @@ body {
 .sound-toggle label {
     display: inline-block;
     padding: 0.5rem 1rem;
-    background: #F0F0F0;
+    background: var(--toggle-bg);
     border-radius: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -228,9 +325,15 @@ body {
         font-size: 4rem;
     }
     
+    .theme-toggle {
+        bottom: 1rem;
+        right: 1rem;
+    }
+    
     .settings {
         flex-direction: column;
         gap: 1rem;
+        
     }
 }
 @keyframes celebrate {

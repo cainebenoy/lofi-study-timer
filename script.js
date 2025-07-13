@@ -22,6 +22,8 @@ const focusTimeInput = document.getElementById('focus-time');
 const breakTimeInput = document.getElementById('break-time');
 const sessionCountDisplay = document.getElementById('session-count');
 const soundToggle = document.getElementById('sound-toggle');
+const themeToggle = document.getElementById('theme-toggle');
+const htmlElement = document.documentElement;
 
 // Audio Setup
 const audio = new Audio('https://www.bensound.com/bensound-music/bensound-slowmotion.mp3');
@@ -33,6 +35,7 @@ function init() {
     loadSettings();
     updateDisplay();
     attachEventListeners();
+    loadTheme();
 }
 
 // Load saved settings from LocalStorage
@@ -60,6 +63,7 @@ function attachEventListeners() {
     startBtn.addEventListener('click', startTimer);
     pauseBtn.addEventListener('click', pauseTimer);
     resetBtn.addEventListener('click', resetTimer);
+    themeToggle.addEventListener('change', toggleTheme);
     
     focusTimeInput.addEventListener('change', (e) => {
         const value = parseInt(e.target.value);
@@ -230,6 +234,23 @@ document.addEventListener('keydown', (e) => {
         resetTimer();
     }
 });
+
+function loadTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    htmlElement.setAttribute('data-theme', savedTheme);
+    themeToggle.checked = savedTheme === 'dark';
+}
+
+function toggleTheme() {
+    const currentTheme = htmlElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+    
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    
+    // Add a smooth transition effect
+    document.body.style.transition = 'all 0.3s ease';
+}
 
 // Initialize app when DOM is loaded
 document.addEventListener('DOMContentLoaded', init);
